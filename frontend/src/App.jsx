@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import './App.css'
-import MainPage from './components/MainPage'
-import TrackingPage from './components/TrackingPage'
-import DetectionPage from './components/DetectionPage'
+import MainPage        from './pages/MainPage'
+import TrackingPage    from './pages/TrackingPage'
+import DetectionPage   from './pages/DetectionPage'
+import SpatialMapPage  from './pages/SpatialMapPage'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('main')
@@ -15,6 +16,8 @@ function App() {
         return <TrackingPage onBack={() => setCurrentPage('main')} />
       case 'detection':
         return <DetectionPage onBack={() => setCurrentPage('main')} />
+      case 'spatial-map':
+        return <SpatialMapPage onBack={() => setCurrentPage('main')} />
       default:
         return <MainPage onNavigate={setCurrentPage} />
     }

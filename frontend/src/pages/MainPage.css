@@ -1,0 +1,96 @@
+.main-page {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.main-header { margin-bottom: 50px; }
+
+.logo {
+  width: 120px; height: 120px;
+  margin: 0 auto 30px;
+  background: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 48px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+.main-page h1 {
+  color: white; font-size: 3em; margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.subtitle {
+  color: rgba(255,255,255,0.95); font-size: 1.2em;
+  max-width: 900px; margin: 0 auto 15px; line-height: 1.6; font-weight: 500;
+}
+.subtitle-small {
+  color: rgba(255,255,255,0.8); font-size: 1em;
+  max-width: 800px; margin: 0 auto; font-style: italic;
+}
+
+/* Cards grid — 3 kartu: 2 di atas, 1 di bawah tengah */
+.section-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 50px 0;
+}
+
+.card {
+  background: white; border-radius: 20px; padding: 40px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.card:hover { transform: translateY(-10px); box-shadow: 0 30px 80px rgba(0,0,0,0.4); }
+
+/* Card khusus Spatial Map: sedikit lebih menonjol */
+.card-featured {
+  border: 3px solid transparent;
+  background:
+    linear-gradient(white, white) padding-box,
+    linear-gradient(135deg, #667eea, #14b8a6) border-box;
+  position: relative;
+}
+.card-featured::before {
+  content: '✨ BARU';
+  position: absolute; top: 14px; right: 16px;
+  background: linear-gradient(135deg, #667eea, #14b8a6);
+  color: white; font-size: 0.7em; font-weight: 700;
+  padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px;
+}
+
+.card-icon { font-size: 64px; margin-bottom: 20px; }
+.card h2   { color: #333; margin-bottom: 15px; font-size: 1.8em; }
+.card p    { color: #666; line-height: 1.6; margin-bottom: 25px; min-height: 80px; }
+
+/* Tombol card spatial map: warna berbeda */
+.btn-map {
+  background: linear-gradient(135deg, #667eea 0%, #14b8a6 100%) !important;
+  box-shadow: 0 5px 15px rgba(20,184,166,0.4) !important;
+}
+.btn-map:hover {
+  box-shadow: 0 8px 25px rgba(20,184,166,0.6) !important;
+}
+
+.info-section {
+  background: white; border-radius: 20px; padding: 40px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  text-align: left; max-width: 900px; margin: 0 auto;
+}
+.info-section h3 { color: #333; font-size: 1.8em; margin-bottom: 20px; }
+.info-section p  { color: #666; line-height: 1.8; font-size: 1.05em; }
+
+@media (max-width: 900px) {
+  .section-cards { grid-template-columns: 1fr 1fr; }
+  .card-featured { grid-column: 1 / -1; max-width: 480px; margin: 0 auto; width: 100%; }
+}
+@media (max-width: 600px) {
+  .main-page h1 { font-size: 2em; }
+  .subtitle     { font-size: 1em; }
+  .section-cards { grid-template-columns: 1fr; }
+  .card-featured { grid-column: auto; max-width: none; }
+  .card p        { min-height: auto; }
+}
